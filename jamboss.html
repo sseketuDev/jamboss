@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jamboss Tattoo | Tatuajes y Piercings - Santiago de Chile</title>
+  <meta name="description" content="Estudio de tatuajes y piercings profesional en el Edificio Euro Centro, Local 0205 Subterraneo, Santiago de Chile. Arte permanente para identidades reales.">
+  <meta name="theme-color" content="#09090b">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <style>
+    /* ============================
+       DESIGN TOKENS - COLOR AMARILLO
+    ============================ */
+    :root {
+      --bg:           #09090b;
+      --bg-elevated:  #111113;
+      --bg-card:      #18181b;
+      --accent:       #eab308;
+      --accent-dark:  #ca8a04;
+      --accent-glow:  rgba(234, 179, 8, 0.2);
+      --text-primary: #fafafa;
+      --text-muted:   #71717a;
+      --text-body:    #a1a1aa;
+      --border:       #27272a;
+      --border-light: #3f3f46;
+
+      --r-sm:  4px;
+      --r-md:  8px;
+      --r-lg:  12px;
+      --r-pill: 999px;
+    }
+
+    /* ============================
+       RESET
+    ============================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================
+       UTILITIES
+    ============================ */
+    .container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ============================
+       SCROLL REVEAL
+    ============================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1), transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.26s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ============================
+       NAVIGATION
+    ============================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 90;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      background: rgba(9, 9, 11, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+    .nav-brand-sub {
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-list a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-body);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-list a:hover { color: var(--text-primary); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #09090b !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--r-sm);
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--accent-dark) !important; color: #09090b !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-primary);
+      padding: 4px;
+      line-height: 0;
+    }
+
+    @media (max-width: 767px) {
+      .nav-list {
+        display: none;
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg-elevated);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 2rem 2rem;
+        gap: 1.25rem;
+      }
+      .nav-list.open { display: flex; }
+      .nav-toggle { display: flex; }
+    }
+
+    /* ============================
+       HERO
+    ============================ */
+    .hero {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 68px;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3.5rem 4rem 0;
+    }
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.75rem;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4.5rem, 8vw, 8.5rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.75rem;
+    }
+    .hero-title .yellow { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      max-width: 40ch;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .hero-right-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--bg) 0%, transparent 35%);
+    }
+    @media (max-width: 767px) {
+      .hero { grid-template-columns: 1fr; grid-template-rows: auto 55vw; }
+      .hero-left { padding: 3rem 0 2rem; order: 2; }
+      .hero-right { order: 1; }
+      .hero-right-fade { background: linear-gradient(to bottom, transparent 30%, var(--bg) 100%); }
+    }
+
+    /* ============================
+       BOTONES
+    ============================ */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #09090b;
+      padding: 0.875rem 2rem;
+      border-radius: var(--r-sm);
+      font-size: 0.875rem;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--accent-dark); color: #09090b; }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-body);
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border-light);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { color: var(--text-primary); border-color: var(--accent); }
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg);
+      color: var(--text-primary);
+      padding: 1rem 2.25rem;
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s;
+      border: 1px solid var(--border);
+    }
+    .btn-dark:hover { background: #18181b; border-color: var(--accent); }
+    .btn-gallery {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1.2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: var(--r-pill);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-gallery:hover {
+      background: var(--accent);
+      color: #09090b;
+    }
+    .gallery-filter-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      justify-content: flex-end;
+    }
+
+    /* ============================
+       ABOUT
+    ============================ */
+    .about { padding: 8rem 0; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-img-wrap { position: relative; }
+    .about-img-main {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); transition: filter 0.5s; }
+    .about-img-wrap:hover .about-img-main img { filter: grayscale(0%); }
+    .about-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 110px;
+      height: 110px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid var(--bg);
+      color: #09090b;
+    }
+    .about-badge-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; line-height: 1; }
+    .about-badge-label { font-size: 0.6rem; letter-spacing: 0.1em; text-align: center; }
+    .about-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 0.93;
+      margin-bottom: 1.5rem;
+    }
+    .about-text p { color: var(--text-body); font-size: 0.975rem; margin-bottom: 1.25rem; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-top: 2.75rem;
+      padding-top: 2.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 3.2rem; color: var(--accent); line-height: 1; }
+    .stat-lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600; }
+    @media (max-width: 767px) { .about-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+    /* ============================
+       SERVICES BENTO (amarillo)
+    ============================ */
+    .services { padding: 8rem 0; background: var(--bg-elevated); }
+    .services h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 0.85rem; }
+    .services-intro { color: var(--text-body); max-width: 46ch; margin-bottom: 3rem; }
+    .bento {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1rem;
+      min-height: 540px;
+    }
+    .bc {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: border-color 0.3s;
+    }
+    .bc:hover { border-color: var(--accent); }
+    .bc-tattoos { grid-row: 1 / 3; display: flex; flex-direction: column; }
+    .bc-tattoos .bc-img { flex: 1; min-height: 0; }
+    .bc-tattoos .bc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s; }
+    .bc-tattoos:hover .bc-img img { transform: scale(1.04); }
+    .bc-restauracion { background: var(--accent) !important; border-color: var(--accent) !important; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; color: #09090b; }
+    .bc-restauracion .bc-desc { color: #09090bcc; }
+    .bc-body { padding: 1.75rem 2rem; }
+    .bc-icon {
+      width: 38px; height: 38px;
+      background: var(--accent-glow);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      color: var(--accent);
+    }
+    .bc-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+    .bc-desc { font-size: 0.875rem; color: var(--text-body); }
+    @media (max-width: 767px) { .bento { grid-template-columns: 1fr; } }
+
+    /* ============================
+       GALLERY CON FILTROS
+    ============================ */
+    .gallery { padding: 8rem 0; }
+    .gallery-head { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+    .gallery-head .eyebrow { font-size: 0.68rem; letter-spacing: 0.24em; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
+    .gallery-head h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 0.93; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery-item {
+      border-radius: var(--r-md);
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s, filter 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); filter: brightness(1.05); }
+    .no-results { text-align: center; color: var(--text-muted); padding: 3rem; grid-column: 1 / -1; }
+
+    /* ============================
+       ARTISTS
+    ============================ */
+    .artists { padding: 8rem 0; background: var(--bg-elevated); }
+    .artists h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 0.75rem; }
+    .artists-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .artist-card {
+      border-radius: var(--r-lg);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      overflow: hidden;
+    }
+    .artist-img { aspect-ratio: 16/9; overflow: hidden; }
+    .artist-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s; }
+    .artist-card:hover .artist-img img { transform: scale(1.04); }
+    .artist-body { padding: 1.75rem; }
+    .artist-role { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
+    .artist-name { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; line-height: 1; margin-bottom: 1rem; }
+    .artist-bio { font-size: 0.875rem; color: var(--text-body); margin-bottom: 1.25rem; }
+    .style-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .style-tag { font-size: 0.68rem; padding: 0.25rem 0.75rem; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-pill); color: var(--text-muted); }
+    @media (max-width: 767px) { .artists-grid { grid-template-columns: 1fr; } }
+
+    /* ============================
+       RESEÑAS
+    ============================ */
+    .reviews { padding: 8rem 0; }
+    .reviews h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 1rem; text-align: center; }
+    .reviews-sub { text-align: center; color: var(--text-body); max-width: 48ch; margin: 0 auto 3rem auto; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      transition: all 0.2s;
+    }
+    .review-card:hover { border-color: var(--accent); }
+    .review-stars { color: var(--accent); font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 1rem; }
+    .review-text { color: var(--text-body); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 0.75rem; }
+    .reviewer-avatar {
+      width: 44px; height: 44px;
+      background: var(--accent-glow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .reviewer-name { font-weight: 600; font-size: 0.9rem; color: var(--text-primary); }
+    .reviewer-date { font-size: 0.7rem; color: var(--text-muted); }
+
+    /* ============================
+       LOCATION CON MAPS REAL
+    ============================ */
+    .location { padding: 8rem 0; }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .location-info h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 0.93; margin-bottom: 1rem; }
+    .location-intro { color: var(--text-body); margin-bottom: 2.5rem; }
+    .address-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .addr-row {
+      display: flex;
+      gap: 1rem;
+      padding: 1.4rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .addr-icon {
+      width: 38px; height: 38px;
+      background: var(--accent-glow);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .addr-lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-muted); font-weight: 600; }
+    .addr-val { font-size: 0.9rem; color: var(--text-primary); line-height: 1.6; }
+    .location-visual {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      border: 1px solid var(--border);
+    }
+    .location-visual iframe {
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    @media (max-width: 767px) { .location-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    /* CTA + FOOTER */
+    .cta-band { background: var(--accent); padding: 6.5rem 0; color: #09090b; }
+    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+    .cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 5rem); line-height: 0.93; }
+    .cta-right .btn-dark { background: #09090b; border: none; }
+    .cta-right .btn-dark:hover { background: #18181b; }
+    footer { background: var(--bg-elevated); padding: 4.5rem 0 2.5rem; border-top: 1px solid var(--border); }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 0.1em; }
+    .footer-socials { display: flex; gap: 0.65rem; margin-top: 1.5rem; }
+    .social-btn {
+      width: 36px; height: 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+    .social-btn:hover { color: var(--accent); border-color: var(--accent); }
+    @media (max-width: 767px) { .footer-top { grid-template-columns: 1fr; } .cta-inner { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-wrap">
+    <a href="#" class="nav-brand">
+      <span class="nav-brand-name">JAMBOSS</span>
+      <span class="nav-brand-sub">Tattoo &amp; Piercing</span>
+    </a>
+    <ul class="nav-list" id="navList">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#artistas">Artistas</a></li>
+      <li><a href="#ubicacion">Ubicacion</a></li>
+      <li><a href="#contacto" class="nav-cta">Reservar Hora</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle"><i class="ph ph-list" style="font-size:1.5rem;"></i></button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container" style="display:contents;">
+    <div class="hero-left" style="padding-left: max(2rem, calc((100vw - 1340px)/2 + 2rem));">
+      <p class="hero-eyebrow reveal">Santiago de Chile</p>
+      <h1 class="hero-title reveal reveal-d1">ARTE<br>EN<br><span class="yellow">TU PIEL</span></h1>
+      <p class="hero-sub reveal reveal-d2">Tatuajes y piercings de alta calidad en el corazon de Santiago. Cada diseño, una historia propia.</p>
+      <div class="hero-actions reveal reveal-d3">
+        <a href="#contacto" class="btn-primary">Reservar Hora <i class="ph ph-arrow-right"></i></a>
+        <a href="#galeria" class="btn-outline">Ver Galeria</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://picsum.photos/seed/jamboss-studio-amarillo/900/1100" alt="Estudio Jamboss" fetchpriority="high">
+      <div class="hero-right-fade"></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-main"><img src="https://picsum.photos/seed/tattoo-artist-jamboss/700/940" alt="Artista tatuando"></div>
+        <div class="about-badge"><span class="about-badge-num">8+</span><span class="about-badge-label">anos de arte</span></div>
+      </div>
+      <div class="about-text">
+        <h2 class="reveal">MAS QUE UN ESTUDIO,<br>UN ESPACIO DE ARTE</h2>
+        <p class="reveal reveal-d1">Jamboss Tattoo nacio de la pasion por el arte corporal. Ubicados en el Edificio Euro Centro, creamos tatuajes y piercings con identidad.</p>
+        <p class="reveal reveal-d1">Artistas especializados, higiene certificada y un espacio donde cada cliente cuenta su historia. Materiales de primera calidad y seguimiento post-sesión.</p>
+        <div class="about-stats"><div><div class="stat-val">8+</div><div class="stat-lbl">Anos activos</div></div><div><div class="stat-val">3.1k</div><div class="stat-lbl">Clientes</div></div><div><div class="stat-val">4</div><div class="stat-lbl">Artistas</div></div><div><div class="stat-val">100%</div><div class="stat-lbl">Esteril</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="container">
+    <h2 class="reveal">LO QUE HACEMOS</h2>
+    <p class="services-intro reveal reveal-d1">Arte permanente con dedicación, higiene certificada y técnica profesional.</p>
+    <div class="bento reveal">
+      <div class="bc bc-tattoos"><div class="bc-img"><img src="https://picsum.photos/seed/tattoo-detalle/600/400" alt="Tatuaje"></div><div class="bc-body lg"><div class="bc-icon"><i class="ph ph-needle"></i></div><div class="bc-name">TATUAJES PERSONALIZADOS</div><p class="bc-desc">Diseños exclusivos, desde pequeñas piezas hasta composiciones en color, blackwork o realismo.</p></div></div>
+      <div class="bc bc-piercings"><div class="bc-img-sm"><img src="https://picsum.photos/seed/piercing-joyas/500/140" alt="Piercing"></div><div class="bc-body"><div class="bc-icon"><i class="ph ph-circles-three-plus"></i></div><div class="bc-name">PIERCINGS PROFESIONALES</div><p class="bc-desc">Joyas de titanio, colocación segura y seguimiento post-perforación.</p></div></div>
+      <div class="bc bc-restauracion"><div class="bc-icon"><i class="ph ph-paint-brush"></i></div><div class="bc-name">RESTAURACION</div><p class="bc-desc">Cubrimos y renovamos tatuajes antiguos con técnicas actuales.</p></div>
+      <div class="bc bc-consultoria"><div class="bc-body lg"><div class="bc-icon"><i class="ph ph-chat-teardrop-text"></i></div><div class="bc-name">CONSULTORIA DE DISEÑO</div><p class="bc-desc">Primera consulta sin costo. Evaluamos tu idea y preparamos el diseño.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="gallery-head"><div><p class="eyebrow">Galeria</p><h2>NUESTRO TRABAJO</h2></div><div class="gallery-filter-bar"><button class="btn-gallery" data-filter="all">Todos</button><button class="btn-gallery" data-filter="rodrigo">Rodrigo "Jam"</button><button class="btn-gallery" data-filter="valentina">Valentina Opazo</button></div></div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<section class="artists" id="artistas">
+  <div class="container">
+    <h2 class="reveal">EL EQUIPO</h2>
+    <p class="artists-sub reveal reveal-d1">Artistas con identidad propia y años de experiencia real.</p>
+    <div class="artists-grid"><div class="artist-card reveal"><div class="artist-img"><img src="https://picsum.photos/seed/rodrigo-artista/700/394" alt="Rodrigo"></div><div class="artist-body"><p class="artist-role">Fundador y Artista Principal</p><h3 class="artist-name">RODRIGO "JAM" BARRIENTOS</h3><p class="artist-bio">Realismo fotográfico y neotradicional. Especialista en grandes formatos y color.</p><div class="style-tags"><span class="style-tag">Realismo</span><span class="style-tag">Neotradicional</span><span class="style-tag">Color</span></div></div></div><div class="artist-card reveal reveal-d1"><div class="artist-img"><img src="https://picsum.photos/seed/valentina-artista/700/394" alt="Valentina"></div><div class="artist-body"><p class="artist-role">Artista Especialista y Piercer</p><h3 class="artist-name">VALENTINA OPAZO</h3><p class="artist-bio">Blackwork, geometría y linework. A cargo de piercings y diseños abstractos.</p><div class="style-tags"><span class="style-tag">Blackwork</span><span class="style-tag">Geometria</span><span class="style-tag">Piercings</span></div></div></div></div>
+  </div>
+</section>
+
+<section class="reviews" id="reseñas">
+  <div class="container">
+    <h2 class="reveal">LO QUE DICEN NUESTROS CLIENTES</h2>
+    <p class="reviews-sub reveal reveal-d1">Experiencias reales que nos inspiran a seguir creando arte.</p>
+    <div class="reviews-grid">
+      <div class="review-card reveal"><div class="review-stars">★★★★★</div><p class="review-text">"Increíble atención, el diseño superó mis expectativas. El estudio impecable, volveré por más piezas."</p><div class="reviewer"><div class="reviewer-avatar">MF</div><div><div class="reviewer-name">María Fernández</div><div class="reviewer-date">Hace 2 semanas</div></div></div></div>
+      <div class="review-card reveal reveal-d1"><div class="review-stars">★★★★★</div><p class="review-text">"Me hice un piercing con Valentina, súper profesional y sin dolor. Muy recomendado."</p><div class="reviewer"><div class="reviewer-avatar">CR</div><div><div class="reviewer-name">Cristián Rojas</div><div class="reviewer-date">Hace 1 mes</div></div></div></div>
+      <div class="review-card reveal reveal-d2"><div class="review-stars">★★★★★</div><p class="review-text">"Rodrigo es un capo, transformó mi idea en una obra de arte. El ambiente del local es súper acogedor."</p><div class="reviewer"><div class="reviewer-avatar">JL</div><div><div class="reviewer-name">Javiera López</div><div class="reviewer-date">Hace 3 semanas</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="ubicacion">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-info"><h2 class="reveal">VISITA<br>EL ESTUDIO</h2><p class="location-intro reveal reveal-d1">Estamos en el corazón de Santiago, en el Edificio Euro Centro.</p>
+        <div class="address-card"><div class="addr-row"><div class="addr-icon"><i class="ph ph-map-pin"></i></div><div><p class="addr-lbl">Direccion</p><p class="addr-val">Edificio Euro Centro, Local 0205 Subterraneo, Santiago de Chile</p></div></div>
+        <div class="addr-row"><div class="addr-icon"><i class="ph ph-clock"></i></div><div><p class="addr-lbl">Horario</p><p class="addr-val">Lun - Sab: 11:00 - 20:00<br>Domingo: 12:00 - 17:00</p></div></div>
+        <div class="addr-row"><div class="addr-icon"><i class="ph ph-whatsapp-logo"></i></div><div><p class="addr-lbl">WhatsApp</p><p class="addr-val">+56 9 1234 5678</p></div></div></div>
+      </div>
+      <div class="location-visual reveal reveal-d1">
+        <iframe src="https://maps.google.com/maps?q=Edificio%20Euro%20Centro%20Santiago%20Chile&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contacto">
+  <div class="container"><div class="cta-inner"><h2 class="cta-title reveal">HABLEMOS DE TU IDEA</h2><div class="cta-right"><p class="cta-copy reveal reveal-d1">Agenda una consulta gratuita con nuestro equipo. Sin compromisos.</p><a href="https://wa.me/56912345678" class="btn-dark reveal reveal-d2">Contactar por WhatsApp <i class="ph ph-arrow-right"></i></a></div></div></div>
+</section>
+
+<footer><div class="container"><div class="footer-top"><div><div class="footer-brand-name">JAMBOSS</div><p class="footer-tagline">Arte permanente para identidades reales. Santiago de Chile.</p><div class="footer-socials"><a href="#" class="social-btn"><i class="ph ph-instagram-logo"></i></a><a href="#" class="social-btn"><i class="ph ph-facebook-logo"></i></a><a href="#" class="social-btn"><i class="ph ph-tiktok-logo"></i></a></div></div><div><p class="footer-col-title">Navegacion</p><ul class="footer-nav"><li><a href="#nosotros">Nosotros</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#artistas">Artistas</a></li></ul></div><div><p class="footer-col-title">Atencion</p><p><strong>Lun a Sab</strong> 11:00-20:00</p><p class="gap"><strong>Domingo</strong> 12:00-17:00</p><p>Euro Centro, Local 0205 Subterraneo</p></div></div><div class="footer-bottom"><p class="footer-copy">2025 Jamboss Tattoo. Todos los derechos reservados.</p></div></div></footer>
+
+<script>
+  const galleryData = [
+    { img: "https://picsum.photos/seed/rodrigo1/400/400", artist: "rodrigo", title: "Realismo" },
+    { img: "https://picsum.photos/seed/rodrigo2/400/400", artist: "rodrigo", title: "Color neotrad" },
+    { img: "https://picsum.photos/seed/valentina1/400/400", artist: "valentina", title: "Blackwork geométrico" },
+    { img: "https://picsum.photos/seed/valentina2/400/400", artist: "valentina", title: "Linework" },
+    { img: "https://picsum.photos/seed/rodrigo3/400/400", artist: "rodrigo", title: "Manga completa" },
+    { img: "https://picsum.photos/seed/valentina3/400/400", artist: "valentina", title: "Piercing y blackwork" }
+  ];
+  function renderGallery(filter = "all") {
+    const grid = document.getElementById("galleryGrid");
+    const filtered = filter === "all" ? galleryData : galleryData.filter(item => item.artist === filter);
+    if(filtered.length === 0) { grid.innerHTML = '<div class="no-results">No hay trabajos de este artista aún.</div>'; return; }
+    grid.innerHTML = filtered.map(item => `<div class="gallery-item"><img src="${item.img}" alt="${item.title}" loading="lazy"></div>`).join("");
+  }
+  document.querySelectorAll(".btn-gallery").forEach(btn => {
+    btn.addEventListener("click", () => { renderGallery(btn.dataset.filter); });
+  });
+  renderGallery("all");
+
+  const revealObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); } }); }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  const navToggle = document.getElementById('navToggle'), navList = document.getElementById('navList');
+  navToggle.addEventListener('click', () => { const isOpen = navList.classList.toggle('open'); navToggle.setAttribute('aria-expanded', isOpen); navToggle.querySelector('i').className = isOpen ? 'ph ph-x' : 'ph ph-list'; });
+  navList.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { navList.classList.remove('open'); navToggle.querySelector('i').className = 'ph ph-list'; }));
+</script>
+</body>
+</html>
