@@ -3,9 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jamboss Tattoo | Tatuajes y Piercings - Santiago de Chile</title>
-  <meta name="description" content="Estudio de tatuajes y piercings profesional en el Edificio Euro Centro, Local 0205 Subterraneo, Santiago de Chile. Arte permanente para identidades reales.">
+  <title>Jamboss Tattoo | Estudio de Tatuajes y Piercings en Santiago de Chile</title>
+  <meta name="description" content="Jamboss Tattoo: estudio profesional de tatuajes y piercings en Santiago de Chile. Realismo, blackwork, black and grey, full color y piercings. Edificio Euro Centro. ¡Agenda tu cita!">
+  <meta name="keywords" content="tatuajes Santiago, estudio tatuajes Santiago, piercings Santiago, tatuaje profesional Chile, blackwork Santiago, realismo tatuajes, black and grey Santiago, Jamboss Tattoo, tatuador Santiago centro, Euro Centro tatuajes">
+  <meta name="author" content="Jamboss Tattoo">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#09090b">
+
+  <!-- Geo -->
+  <meta name="geo.region" content="CL-RM">
+  <meta name="geo.placename" content="Santiago, Chile">
+  <meta name="geo.position" content="-33.4372;-70.6506">
+  <meta name="ICBM" content="-33.4372, -70.6506">
+
+  <!-- Open Graph (WhatsApp, Facebook, Instagram) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jamboss.cl/">
+  <meta property="og:site_name" content="Jamboss Tattoo">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:title" content="Jamboss Tattoo | Estudio de Tatuajes y Piercings en Santiago de Chile">
+  <meta property="og:description" content="Estudio profesional de tatuajes y piercings en Santiago. Especialistas en realismo, blackwork, black and grey y full color. Edificio Euro Centro, Local 0205. ¡Agenda tu cita!">
+  <meta property="og:image" content="https://jamboss.cl/heroimg.png">
+  <meta property="og:image:alt" content="Jamboss Tattoo — Estudio de tatuajes en Santiago de Chile">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jamboss Tattoo | Tatuajes y Piercings en Santiago">
+  <meta name="twitter:description" content="Estudio profesional en Santiago. Realismo, blackwork, black and grey y piercings. Edificio Euro Centro.">
+  <meta name="twitter:image" content="https://jamboss.cl/heroimg.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +39,56 @@
 
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TattooParlor",
+    "name": "Jamboss Tattoo",
+    "description": "Estudio profesional de tatuajes y piercings en Santiago de Chile. Especialistas en realismo, blackwork, black and grey, full color y piercings.",
+    "url": "https://jamboss.cl",
+    "telephone": "+56949099056",
+    "image": "https://jamboss.cl/heroimg.png",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Edificio Euro Centro, Local 0205 Subterraneo",
+      "addressLocality": "Santiago",
+      "addressRegion": "Región Metropolitana",
+      "postalCode": "8320000",
+      "addressCountry": "CL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.4372,
+      "longitude": -70.6506
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Tatuajes y Piercings",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tatuajes Personalizados"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Piercings Profesionales"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Restauración de Tatuajes"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoría Gratuita"}}
+      ]
+    },
+    "employee": [
+      {"@type": "Person", "name": "Juan Yáñez", "jobTitle": "Tatuador y Perforador Profesional"},
+      {"@type": "Person", "name": "Carlos Rivas", "jobTitle": "Tatuador Profesional"}
+    ],
+    "sameAs": [
+      "https://www.instagram.com/jamboss_tattoo"
+    ]
+  }
+  </script>
 
   <style>
     /* ============================
@@ -378,21 +453,50 @@
 
     /* ARTISTS */
     .artists { padding: 8rem 0; background: var(--bg-elevated); }
+    .artists .section-eyebrow { font-size: 0.68rem; letter-spacing: 0.24em; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-bottom: 0.6rem; }
     .artists h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 0.75rem; }
-    .artists-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .artists-sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 3.5rem; max-width: 58ch; }
+    .artists-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .artist-card {
       border-radius: var(--r-lg);
       border: 1px solid var(--border);
       background: var(--bg-card);
       overflow: hidden;
+      transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
     }
-    .artist-img { aspect-ratio: 16/9; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center; }
-    .artist-body { padding: 1.75rem; }
-    .artist-role { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
-    .artist-name { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; line-height: 1; margin-bottom: 1rem; }
-    .artist-bio { font-size: 0.875rem; color: var(--text-body); margin-bottom: 1.25rem; }
-    .style-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .style-tag { font-size: 0.68rem; padding: 0.25rem 0.75rem; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-pill); color: var(--text-muted); }
+    .artist-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 56px rgba(234, 179, 8, 0.13);
+    }
+    .artist-img { aspect-ratio: 4/5; overflow: hidden; background: #0d0d0f; }
+    .artist-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1); }
+    .artist-card:hover .artist-img img { transform: scale(1.05); }
+    .artist-body { padding: 2rem 2rem 2.25rem; }
+    .artist-role { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--accent); font-weight: 600; margin-bottom: 0.45rem; text-transform: uppercase; }
+    .artist-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; line-height: 1; margin-bottom: 1.25rem; }
+    .artist-bio { font-size: 0.875rem; color: var(--text-body); margin-bottom: 1.5rem; line-height: 1.78; }
+    .style-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem; }
+    .style-tag { font-size: 0.68rem; padding: 0.3rem 0.85rem; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-pill); color: var(--text-muted); transition: border-color 0.2s, color 0.2s; }
+    .artist-card:hover .style-tag { border-color: var(--border-light); color: var(--text-body); }
+    .btn-reserve {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--r-sm);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .btn-reserve:hover { background: var(--accent); color: #09090b; }
+    @media (max-width: 767px) { .artists-grid { grid-template-columns: 1fr; } }
 
     /* SECCIÓN AGENDAR CITA (32 FOTOS BLANCAS) */
     .booking-showcase {
@@ -506,11 +610,11 @@
   <div class="container" style="display:contents;">
     <div class="hero-left" style="padding-left: max(2rem, calc((100vw - 1340px)/2 + 2rem));">
       <p class="hero-eyebrow reveal">Santiago de Chile</p>
-      <h1 class="hero-title reveal reveal-d1">ARTE<br>EN<br><span class="yellow">TU PIEL</span></h1>
-      <p class="hero-sub reveal reveal-d2">Tatuajes y piercings de alta calidad en el corazon de Santiago.</p>
+      <h1 class="hero-title reveal reveal-d1">TINTA<br>PARA LA<br><span class="yellow">ETERNIDAD</span></h1>
+      <p class="hero-sub reveal reveal-d2">Arte permanente creado por artistas apasionados. Estudio profesional en el corazón de Santiago.</p>
       <div class="hero-actions reveal reveal-d3"><a href="#agendar-cita" class="btn-primary">Reservar Hora <i class="ph ph-arrow-right"></i></a><a href="#galeria" class="btn-outline">Ver Galeria</a></div>
     </div>
-    <div class="hero-right"><img src="heroimg.png" alt="Jamboss Tattoo"><div class="hero-right-fade"></div></div>
+    <div class="hero-right"><img src="heroimg.png" alt="Tatuaje profesional realizado en Jamboss Tattoo, estudio en Santiago de Chile" loading="eager" fetchpriority="high"><div class="hero-right-fade"></div></div>
   </div>
 </section>
 
@@ -519,7 +623,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <div class="about-img-main"><div class="img-placeholder">IMAGEN EJEMPLO</div></div>
+        <div class="about-img-main"><img src="estudio1.jpg" alt="Interior del estudio Jamboss Tattoo en Santiago de Chile" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
         <div class="about-badge"><span class="about-badge-num">+8</span><span class="about-badge-label">años</span></div>
       </div>
       <div class="about-text">
@@ -531,11 +635,58 @@
   </div>
 </section>
 
-<section class="services" id="servicios"><div class="container"><h2 class="reveal">LO QUE HACEMOS</h2><div class="bento reveal"><div class="bc bc-tattoos"><div class="bc-img"><div class="img-placeholder" style="height:100%;">IMAGEN EJEMPLO</div></div><div class="bc-body lg"><div class="bc-icon"><i class="ph ph-needle"></i></div><div class="bc-name">TATUAJES PERSONALIZADOS</div><p class="bc-desc">Diseños exclusivos, blackwork o realismo.</p></div></div><div class="bc bc-piercings"><div class="bc-img-sm"><div class="img-placeholder" style="height:140px;">IMAGEN EJEMPLO</div></div><div class="bc-body"><div class="bc-icon"><i class="ph ph-circles-three-plus"></i></div><div class="bc-name">PIERCINGS PROFESIONALES</div><p class="bc-desc">Joyas de titanio, colocación segura.</p></div></div><div class="bc bc-restauracion"><div class="bc-icon"><i class="ph ph-paint-brush"></i></div><div class="bc-name">RESTAURACION</div><p class="bc-desc">Cubrimos tatuajes antiguos.</p></div><div class="bc bc-consultoria"><div class="bc-body lg"><div class="bc-icon"><i class="ph ph-chat-teardrop-text"></i></div><div class="bc-name">CONSULTORIA</div><p class="bc-desc">Primera consulta sin costo.</p></div></div></div></div></section>
+<section class="services" id="servicios"><div class="container"><h2 class="reveal">LO QUE HACEMOS</h2><div class="bento reveal"><div class="bc bc-tattoos"><div class="bc-img"><img src="estudio2.jpg" alt="Ambiente del estudio de tatuajes Jamboss en Santiago" style="width:100%;height:100%;object-fit:cover;"></div><div class="bc-body lg"><div class="bc-icon"><i class="ph ph-needle"></i></div><div class="bc-name">TATUAJES PERSONALIZADOS</div><p class="bc-desc">Diseños exclusivos, blackwork o realismo.</p></div></div><div class="bc bc-piercings"><div class="bc-img-sm"><div class="img-placeholder" style="height:140px;">IMAGEN EJEMPLO</div></div><div class="bc-body"><div class="bc-icon"><i class="ph ph-circles-three-plus"></i></div><div class="bc-name">PIERCINGS PROFESIONALES</div><p class="bc-desc">Joyas de titanio, colocación segura.</p></div></div><div class="bc bc-restauracion"><div class="bc-icon"><i class="ph ph-paint-brush"></i></div><div class="bc-name">RESTAURACION</div><p class="bc-desc">Cubrimos tatuajes antiguos.</p></div><div class="bc bc-consultoria"><div class="bc-body lg"><div class="bc-icon"><i class="ph ph-chat-teardrop-text"></i></div><div class="bc-name">CONSULTORIA</div><p class="bc-desc">Primera consulta sin costo.</p></div></div></div></div></section>
 
 <section class="gallery" id="galeria"><div class="container"><div class="gallery-head"><div><p class="eyebrow">Galeria</p><h2>NUESTRO TRABAJO</h2></div><div class="gallery-filter-bar"><button class="btn-gallery" data-filter="all">Todos</button><button class="btn-gallery" data-filter="cerone">Cerone</button><button class="btn-gallery" data-filter="yanez">Yañez</button></div></div><div class="gallery-grid" id="galleryGrid"></div></div></section>
 
-<section class="artists" id="artistas"><div class="container"><h2 class="reveal">EL EQUIPO</h2><div class="artists-grid"><div class="artist-card reveal"><div class="artist-img"><img src="cerone1.jpg" alt="Cerone" style="width:100%;height:100%;object-fit:cover;"></div><div class="artist-body"><p class="artist-role">Tatuador</p><h3 class="artist-name">CERONE</h3><p class="artist-bio">Especialista en blackwork y grandes formatos.</p><div class="style-tags"><span class="style-tag">Blackwork</span><span class="style-tag">Realismo</span></div></div></div><div class="artist-card reveal"><div class="artist-img"><img src="1000133691.jpg" alt="Yañez" style="width:100%;height:100%;object-fit:cover;"></div><div class="artist-body"><p class="artist-role">Tatuador</p><h3 class="artist-name">YAÑEZ</h3><p class="artist-bio">Especialista en lineas finas y geometría.</p><div class="style-tags"><span class="style-tag">Linework</span><span class="style-tag">Fine Line</span></div></div></div></div></div></section>
+<section class="artists" id="artistas">
+  <div class="container">
+    <p class="section-eyebrow reveal">Tatuadores</p>
+    <h2 class="reveal">EL EQUIPO</h2>
+    <p class="artists-sub reveal">Artistas con años de trayectoria dedicados al arte permanente.</p>
+    <div class="artists-grid">
+
+      <div class="artist-card reveal">
+        <div class="artist-img">
+          <img src="yanesfoto1.jpg" alt="Juan Yáñez">
+        </div>
+        <div class="artist-body">
+          <p class="artist-role">Tatuador &amp; Perforador Profesional</p>
+          <h3 class="artist-name">JUAN YÁÑEZ</h3>
+          <p class="artist-bio">Juan Yáñez comenzó a tatuar a los 18 años y desde 2022 se dedica profesionalmente al arte del tatuaje. Con más de nueve años de experiencia, se ha especializado en estilos como realismo, black and grey, full color y blackwork, desarrollando una propuesta versátil y de alto nivel técnico. Además, desde 2020 se desempeña como perforador profesional, acumulando seis años de experiencia en piercings y modificaciones corporales. Forma parte del estudio desde enero de 2025, aportando su trayectoria y pasión por el detalle en cada trabajo.</p>
+          <div class="style-tags">
+            <span class="style-tag">Realismo</span>
+            <span class="style-tag">Black and Grey</span>
+            <span class="style-tag">Full Color</span>
+            <span class="style-tag">Blackwork</span>
+            <span class="style-tag">Piercings</span>
+          </div>
+          <a href="#agendar-cita" class="btn-reserve"><i class="ph ph-calendar-check"></i> Reservar cita</a>
+        </div>
+      </div>
+
+      <div class="artist-card reveal reveal-d1">
+        <div class="artist-img">
+          <img src="Ceronefoto1.jpg" alt="Carlos Rivas">
+        </div>
+        <div class="artist-body">
+          <p class="artist-role">Tatuador Profesional</p>
+          <h3 class="artist-name">CARLOS RIVAS</h3>
+          <p class="artist-bio">Carlos Rivas inició su camino en el tatuaje en 2019 y, a sus 21 años, ya cuenta con siete años de experiencia perfeccionando su estilo. Su trabajo se enfoca principalmente en black and grey, realismo, línea fina, microrealismo y cyber tattoo, combinando precisión y creatividad para crear piezas únicas. Se incorporó al estudio a principios de 2025, donde continúa desarrollando su propuesta artística y ofreciendo diseños personalizados que destacan por su nivel de detalle y acabado profesional.</p>
+          <div class="style-tags">
+            <span class="style-tag">Black and Grey</span>
+            <span class="style-tag">Realismo</span>
+            <span class="style-tag">Línea Fina</span>
+            <span class="style-tag">Microrealismo</span>
+            <span class="style-tag">Cyber Tattoo</span>
+          </div>
+          <a href="#agendar-cita" class="btn-reserve"><i class="ph ph-calendar-check"></i> Reservar cita</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- SECCIÓN AGENDAR CITA CON 32 FOTOS BLANCAS POR TATUADOR + BOTONES SETMORE -->
 <section class="booking-showcase" id="agendar-cita">
@@ -568,7 +719,12 @@
 
 <section class="cta-band" id="contacto"><div class="container"><h2 class="reveal">¿Tienes una idea en mente?</h2><a href="https://wa.me/56949099056" class="btn-dark">Contactar por WhatsApp <i class="ph ph-whatsapp-logo"></i></a></div></section>
 
-<footer><div class="container"><p class="footer-copy">2025 Jamboss Tattoo. Todos los derechos reservados. | Arte permanente en Santiago de Chile</p></div></footer>
+<footer>
+  <div class="container">
+    <p class="footer-copy">© 2025 <strong>Jamboss Tattoo</strong> — Estudio de Tatuajes y Piercings en Santiago de Chile. Todos los derechos reservados.</p>
+    <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem;">Edificio Euro Centro, Local 0205 Subterraneo, Santiago · <a href="tel:+56949099056" style="color:var(--text-muted);">+56 9 4909 9056</a> · Lun–Dom 10:00–20:00</p>
+  </div>
+</footer>
 
 <script>
   // Galería principal con filtros
