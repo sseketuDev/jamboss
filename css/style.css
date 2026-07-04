@@ -1082,37 +1082,25 @@ a { color: inherit; text-decoration: none; }
    REVIEWS
 ============================ */
 .reviews { padding: 8rem 0; background: var(--bg-elevated); }
-.reviews h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); text-align: center; }
-.elfsight-mockup {
-  max-width: 800px;
-  margin: 2rem auto 0;
-  background: var(--bg-card);
-  border-radius: var(--r-lg);
-  border: 1px solid var(--border);
-  padding: 1.5rem;
-}
+.reviews h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); text-align: center; margin-bottom: 1rem; }
+.reviews .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.24em; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; }
+.reviews-header { max-width: 760px; margin: 0 auto 2rem; text-align: center; }
+.reviews-sub { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-top: 0.75rem; }
+.reviews-grid { display: grid; gap: 1.5rem; margin-bottom: 2rem; }
+@media (min-width: 900px) { .reviews-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .review-card {
-  border-bottom: 1px solid var(--border);
-  padding: 1rem 0;
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  transition: background 0.2s;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
-.review-card:last-child { border-bottom: none; }
-.review-avatar {
-  width: 50px; height: 50px;
-  border-radius: 50%;
-  background: var(--accent-glow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: var(--accent);
-  flex-shrink: 0;
-  border: 1px solid rgba(234, 179, 8, 0.2);
-}
-.review-stars { color: var(--accent); letter-spacing: 2px; margin-bottom: 0.25rem; }
+.review-card:hover { transform: translateY(-4px); border-color: rgba(234, 179, 8, 0.35); }
+.review-card p { font-size: 0.98rem; line-height: 1.8; color: var(--text-body); margin-bottom: 1rem; }
+.review-card span { color: var(--text-muted); font-size: 0.88rem; }
+.review-stars { color: var(--accent); letter-spacing: 0.16em; font-size: 0.95rem; margin-bottom: 0.75rem; display: inline-block; }
+.elfsight-wrapper { max-width: 1024px; margin: 0 auto; }
 
 /* ============================
    LOCATION & FOOTER
