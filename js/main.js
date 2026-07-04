@@ -33,7 +33,9 @@ const galleryData = [
   { img: "img/yanez/1000133750.jpg", artist: "yanez" },
   { img: "img/yanez/1000133754.jpg", artist: "yanez" },
   { img: "img/yanez/1000133758.jpg", artist: "yanez" },
-  { img: "img/yanez/1000133762.jpg", artist: "yanez" }
+  { img: "img/yanez/1000133762.jpg", artist: "yanez" },
+  { img: "img/yanez/tatuaje1.jpg", artist: "yanez" },
+  { img: "img/yanez/tatuaje2.jpg", artist: "yanez" }
 ];
 
 function artistLabel(artist) {
