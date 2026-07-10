@@ -34,8 +34,19 @@ const galleryData = [
   { img: "img/yanez/1000133754.jpg", artist: "yanez" },
   { img: "img/yanez/1000133758.jpg", artist: "yanez" },
   { img: "img/yanez/1000133762.jpg", artist: "yanez" },
-  { img: "img/yanez/tatuaje1.jpg", artist: "yanez" },
-  { img: "img/yanez/tatuaje2.jpg", artist: "yanez" }
+  { img: "img/yanez/piercingomb.jpeg", artist: "yanez" },
+  { img: "img/yanez/piercing1.jpeg", artist: "yanez" },
+  { img: "img/yanez/piercing2.jpeg", artist: "yanez" },
+  { img: "img/yanez/piercing3.jpeg", artist: "yanez" },
+  { img: "img/yanez/piercing4.jpeg", artist: "yanez" },
+  { img: "img/yanez/piercing5.jpeg", artist: "yanez" },
+  { img: "img/yanez/piercing6.jpeg", artist: "yanez" },
+  { img: "img/yanez/piercing7.jpeg", artist: "yanez" },
+  { img: "img/yanez/piercing8.jpeg", artist: "yanez" },
+  { img: "img/yanez/microdermal1.jpeg", artist: "yanez" },
+  { img: "img/yanez/microdermal2.jpeg", artist: "yanez" },
+  { img: "img/yanez/microdermal3.jpeg", artist: "yanez" },
+
 ];
 
 function artistLabel(artist) {
